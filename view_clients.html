@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizar Clientes</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Clientes Cadastrados</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Endereço</th>
+                    <th>Telefone</th>
+                    <th>E-mail</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for client in clients %}
+                <tr>
+                    <td>{{ client.name }}</td>
+                    <td>{{ client.address }}</td>
+                    <td>{{ client.phone }}</td>
+                    <td>{{ client.email }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <form action="/export" method="POST">
+            <button type="submit" <a href="clientes.xlsx">Exportar para Excel</button></a>
+        </form>
+    </div>
+</body>
+</html>
